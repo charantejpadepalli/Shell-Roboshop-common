@@ -13,7 +13,7 @@ VALIDATE $? "Enabling $app_name:7"
 dnf install $app_name -y &>>$LOG_FILE
 VALIDATE $? "Installing $app_name"
 
-sed -i -e 's/127.0.0.1/0.0.0.0' -e '/protected-mode/ c protected-mode no' /etc/$app_name/$app_name.conf &>>$LOG_FILE
+sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protected-mode/ c protected-mode no' /etc/$app_name/$app_name.conf &>>$LOG_FILE
 VALIDATE $? "Allowing remote connection to $app_name"
 
 systemctl enable $app_name &>>$LOG_FILE
