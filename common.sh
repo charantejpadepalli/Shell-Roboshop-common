@@ -39,6 +39,8 @@ nodejs_setup(){
     VALIDATE $? "Enabling NodeJS:20"
     dnf install nodejs -y &>>$LOG_FILE
     VALIDATE $? "Installing NodeJS"
+    npm install &>>$LOG_FILE
+    VALIDATE $? "Installing Dependencies"
 }
 java_setup(){
     dnf install maven -y &>>$LOG_FILE
@@ -74,8 +76,7 @@ app_setup(){
     VALIDATE $? "Removing Existing Code"
     unzip /tmp/$app_name.zip &>>$LOG_FILE
     VALIDATE $? "Unzipping Code"
-    npm install &>>$LOG_FILE
-    VALIDATE $? "Installing Dependencies"
+
 }
 
 systemd_setup(){
