@@ -20,6 +20,7 @@ if [ $INDEX -le 0 ]; then
     VALIDATE $? "Load $app_name products"
 else
     echo -e "$app_name Products already loaded... $Y SKIPPING $N"
+fi
 
 app_restart
 print_total_time
