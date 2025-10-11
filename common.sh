@@ -74,7 +74,7 @@ app_setup(){
     VALIDATE $? "Removing Existing Code"
     unzip /tmp/$app_name.zip &>>$LOG_FILE
     VALIDATE $? "Unzipping Code"
-    pm install &>>$LOG_FILE
+    npm install &>>$LOG_FILE
     VALIDATE $? "Installing Dependencies"
 }
 
